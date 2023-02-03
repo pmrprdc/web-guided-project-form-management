@@ -19,7 +19,10 @@ function SimpleForm() {
   
   const change =(evt) => {
     const {name, value} = evt.target;
-    console.log(name,value)
+
+    setFormValues({...formValues, [name]:value})
+    console.log(formValues)
+    
   }
   
   
@@ -37,13 +40,13 @@ function SimpleForm() {
       <input
       name="petName"
       type="text"
-      value = ""
+      value = {formValues.petName}
       onChange={change}
        />
        <input
       name="petType"
       type="text"
-      value = ""
+      value = {formValues.petType}
       onChange={change}
        />
     </form>
