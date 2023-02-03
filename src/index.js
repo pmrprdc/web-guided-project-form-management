@@ -13,6 +13,16 @@ const petsList = [
 
 function SimpleForm() {
   const [pets, setPets] = useState(petsList)
+  const [formValues, setFormValues] = useState({petName: "", petType: ""})
+  
+  
+  
+  const change =(evt) => {
+    const {name, value} = evt.target;
+    console.log(name,value)
+  }
+  
+  
   
   return <div className="container">
     <h1>Simple Form App</h1>
@@ -23,6 +33,20 @@ function SimpleForm() {
         </div>
       )
     })}
+    <form>
+      <input
+      name="petName"
+      type="text"
+      value = ""
+      onChange={change}
+       />
+       <input
+      name="petType"
+      type="text"
+      value = ""
+      onChange={change}
+       />
+    </form>
     </div>
 }
 
