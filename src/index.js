@@ -21,8 +21,13 @@ function SimpleForm() {
     const {name, value} = evt.target;
 
     setFormValues({...formValues, [name]:value})
-    console.log(formValues)
+
     
+  }
+  const submit =(evt)=>{
+      evt.preventDefault();
+      setPets(pets.concat(formValues))
+
   }
   
   
@@ -36,7 +41,7 @@ function SimpleForm() {
         </div>
       )
     })}
-    <form>
+    <form onSubmit={submit}>
       <input
       name="petName"
       type="text"
@@ -49,6 +54,7 @@ function SimpleForm() {
       value = {formValues.petType}
       onChange={change}
        />
+      <input type="submit" value="Create a Pet!"/>
     </form>
     </div>
 }
