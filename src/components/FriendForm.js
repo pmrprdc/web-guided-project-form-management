@@ -7,9 +7,13 @@ export default function FriendForm(props) {
   const onChange = evt => {
     // 🔥 STEP 6 - IMPLEMENT the change handler for our inputs and dropdown
     // a) pull the name of the input from the event object
+
+    const name = evt.target.name;
     // b) pull the value of the input from the event object
+    const {value} = evt.target;
     // c) use the `update` callback coming in through props
-    console.log(evt.target.name)
+    update(name,value)
+    
   }
 
   const onSubmit = evt => {
