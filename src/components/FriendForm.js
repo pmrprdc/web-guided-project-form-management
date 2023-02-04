@@ -9,6 +9,7 @@ export default function FriendForm(props) {
     // a) pull the name of the input from the event object
     // b) pull the value of the input from the event object
     // c) use the `update` callback coming in through props
+    console.log(evt.target.name)
   }
 
   const onSubmit = evt => {
@@ -28,11 +29,26 @@ export default function FriendForm(props) {
               Controlled inputs need `value` and `onChange` props.
               Inputs render what they're told - their current value comes from app state.
               At each keystroke, a change handler fires to change app state. */}
+        <input 
+        type="text"
+        name ="username"
+        placeholder = "Type a username"
+        value={values.username}
+        maxLength = "30"
+        onChange={onChange}
+        />
         </label>
 
         <label>Email
           {/* 🔥 STEP 4 - Make an input of type `email` or `text` for email. */}
-        </label>
+          <input
+          type="email"
+          name="email"
+          placeholder='Type email'
+          value={values.email}
+          onChange={onChange}
+          />
+         </label>
 
         {/* ////////// DROPDOWN ////////// */}
         {/* ////////// DROPDOWN ////////// */}
