@@ -19,15 +19,15 @@ function SimpleForm() {
   
   const change =(evt) => {
     const {name, value} = evt.target;
-
+   
     setFormValues({...formValues, [name]:value})
 
     
   }
-  const submit =(evt)=>{
+  const submit=(evt)=>{
       evt.preventDefault();
-      setPets(pets.concat(formValues))
-
+      setPets(pets.concat({petName: formValues.petName, petType:formValues.petType}))
+      setFormValues({petName: "", petType: ""})
   }
   
   
@@ -63,7 +63,7 @@ render(
   <>
     <SimpleForm />
     
-    {/* <App /> */}
+    <App />
   </>
   , document.querySelector('#root')
 )
