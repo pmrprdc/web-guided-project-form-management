@@ -36,8 +36,13 @@ export default function App() {
     email: formValues.email.trim(),
     role: formValues.role
   }
-  
-  }
+  if(!newFriend.username || !newFriend.email || !newFriend.role ) return;
+    axios.post("fakeapi.com", newFriend)
+    .then(res=>{
+      console.log(res)
+    })
+    .catch(err=>console.log(err))
+}
 
   useEffect(() => {
     axios.get('fakeapi.com').then(res => setFriends(res.data))
