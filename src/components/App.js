@@ -36,7 +36,11 @@ export default function App() {
     email: formValues.email.trim(),
     role: formValues.role
   }
-  if(!newFriend.username || !newFriend.email || !newFriend.role ) return;
+  if(!newFriend.username || !newFriend.email || !newFriend.role ) {
+    setFormError("Username, Email AND role are required! ") 
+  }
+
+
     axios.post("fakeapi.com", newFriend)
     .then(res=>{
       setFriends([res.data, ...friends])
@@ -52,7 +56,7 @@ export default function App() {
   return (
     <div className='container'>
       <h1>Form App</h1>
-      {formError && <h2 className='error'>{error}</h2>}
+      {formError && <h2 className='error'>{formError}</h2>}
       <FriendForm
         // 🔥 STEP 2 - The form component needs its props.
         //  Check implementation of FriendForm
